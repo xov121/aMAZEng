@@ -164,6 +164,15 @@ void render_walls(SDL_Instance *instance, double posX, double posY, double dirX,
     }
 }
 
+void reset_game(double *posX, double *posY, double *dirX, double *dirY, double *planeX, double *planeY) {
+    *posX = 12;
+    *posY = 12;
+    *dirX = -1;
+    *dirY = 0;
+    *planeX = 0;
+    *planeY = 0.66;
+}
+
 int main() {
     SDL_Instance instance;
     SDL_Event event;
@@ -228,7 +237,8 @@ int main() {
             /* Check if player reached the finish line */
             if (world_map[(int)posX][(int)posY] == 2) {
                 printf("Congratulations! You've reached the finish line!\n");
-                running = 0;
+                SDL_Delay(1000);
+                reset_game(&posX, &posY, &dirX, &dirY, &planeX, &planeY);
             }
         }
 
