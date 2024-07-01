@@ -5,6 +5,7 @@
 #define MAP_WIDTH 24
 #define MAP_HEIGHT 24
 
+/* Define the world map with walls (1), open spaces (0), and a finish line (2) */
 int world_map[MAP_WIDTH][MAP_HEIGHT] = {
     {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
     {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1},
@@ -37,6 +38,7 @@ typedef struct {
     SDL_Renderer *renderer;
 } SDL_Instance;
 
+/* Initialize the SDL instance (window and renderer) */
 int init_instance(SDL_Instance *instance) {
     /* Initialize SDL */
     if (SDL_Init(SDL_INIT_VIDEO) != 0) {
@@ -64,6 +66,7 @@ int init_instance(SDL_Instance *instance) {
     return 0;
 }
 
+/* Render the walls based on player's position, direction, and camera plane */
 void render_walls(SDL_Instance *instance, double posX, double posY, double dirX, double dirY, double planeX, double planeY) {
     int w = 800;
     int h = 600;
@@ -164,6 +167,7 @@ void render_walls(SDL_Instance *instance, double posX, double posY, double dirX,
     }
 }
 
+/* Reset game to initial position and direction */
 void reset_game(double *posX, double *posY, double *dirX, double *dirY, double *planeX, double *planeY) {
     *posX = 12;
     *posY = 12;
@@ -193,6 +197,7 @@ int main() {
 
     SDL_SetRelativeMouseMode(SDL_TRUE);
 
+    /* Main game loop */
     while (running) {
         while (SDL_PollEvent(&event)) {
             if (event.type == SDL_QUIT) {
@@ -246,6 +251,7 @@ int main() {
         SDL_SetRenderDrawColor(instance.renderer, 0, 0, 0, 255);
         SDL_RenderClear(instance.renderer);
 
+        /* Render the walls */
         render_walls(&instance, posX, posY, dirX, dirY, planeX, planeY);
         SDL_RenderPresent(instance.renderer);
         SDL_Delay(16); /* Approx. 60 frames per second */
