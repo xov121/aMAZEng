@@ -204,6 +204,9 @@ int main() {
                 running = 0;
             }
             if (event.type == SDL_KEYDOWN) {
+                if (event.key.keysym.sym == SDLK_ESCAPE) {  /* Close the window with ESC key */
+                    running = 0;
+                }
                 if (event.key.keysym.sym == SDLK_w) {
                     if(world_map[(int)(posX + dirX * moveSpeed)][(int)posY] == 0 || world_map[(int)(posX + dirX * moveSpeed)][(int)posY] == 2) posX += dirX * moveSpeed;
                     if(world_map[(int)posX][(int)(posY + dirY * moveSpeed)] == 0 || world_map[(int)posX][(int)(posY + dirY * moveSpeed)] == 2) posY += dirY * moveSpeed;
@@ -264,3 +267,4 @@ int main() {
 
     return 0;
 }
+
