@@ -32,7 +32,7 @@ Ensure that you have the necessary libraries installed on your system. You can i
     ```
 2. **Navigate to the Project Directory**:
     ```bash
-    cd maze
+    cd amazeng
     ```
 3. **Compile the Code**:
     ```bash
