@@ -28,7 +28,7 @@ Ensure that you have the necessary libraries installed on your system. You can i
 ## Installation
 1. **Clone the Repository**:
     ```bash
-    git clone https://github.com/xov121/maze.git
+    git clone https://github.com/xov121/amazeng.git
     ```
 2. **Navigate to the Project Directory**:
     ```bash
@@ -36,7 +36,7 @@ Ensure that you have the necessary libraries installed on your system. You can i
     ```
 3. **Compile the Code**:
     ```bash
-    gcc -o maze maze.c -lSDL2 -lSDL2_image -lSDL2_ttf -lm
+    gcc -o maze main.c -lSDL2 -lSDL2_image -lSDL2_ttf -lm
     ```
 
 ## Usage
